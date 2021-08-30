@@ -31,15 +31,21 @@ async function resetCurrentInteger(req, res, db) {
     return res.status(400).json(getCustomError(400));
   }
 
-  const records = await db
-    .from("users")
-    .where("email", authenticatedUser.email)
-    .update(
-      {
-        integer: req.body.data.current,
-      },
-      ["id", "integer"]
-    );
+  let records;
+
+  try {
+    records = await db
+      .from("users")
+      .where("email", authenticatedUser.email)
+      .update(
+        {
+          integer: req.body.data.current,
+        },
+        ["id", "integer"]
+      );
+  } catch (e) {
+    return res.status(500).json(getCustomError(500));
+  }
 
   if (
     !records ||

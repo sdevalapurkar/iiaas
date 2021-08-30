@@ -16,6 +16,8 @@ async function registerUser(req, res, db) {
     return res.status(406).json(getCustomError(406));
   }
 
+  console.log(req.body)
+
   if (
     !req.body ||
     !req.body.data ||
@@ -32,7 +34,11 @@ async function registerUser(req, res, db) {
     password: hashedPassword,
   });
 
-  await db("users").insert(userToRegister);
+  try {
+    await db("users").insert(userToRegister);
+  } catch (e) {
+    return res.status(500).json(getCustomError(500));
+  }
   const accessToken = generateAccessToken(userToRegister);
 
   return res.json({

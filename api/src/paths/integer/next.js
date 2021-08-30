@@ -20,11 +20,16 @@ async function getNextInteger(req, res, db) {
     return res.status(401).json(getCustomError(401));
   }
 
-  const records = await db
-    .from("users")
-    .where("email", authenticatedUser.email)
-    .increment("integer", 1)
-    .returning("*");
+  let records;
+  try {
+    records = await db
+      .from("users")
+      .where("email", authenticatedUser.email)
+      .increment("integer", 1)
+      .returning("*");
+  } catch (e) {
+    return res.status(500).json(getCustomError(500));
+  }
 
   if (!records || !records.length || !records[0] || !records[0].integer) {
     return res.status(204).json(getCustomError(204));

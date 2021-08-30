@@ -22,10 +22,15 @@ async function getCurrentInteger(req, res, db) {
     return res.status(401).json(getCustomError(401));
   }
 
-  const record = await db
-    .first()
-    .from("users")
-    .where("email", authenticatedUser.email);
+  let record;
+  try {
+    record = await db
+      .first()
+      .from("users")
+      .where("email", authenticatedUser.email);
+  } catch (e) {
+    return res.status(500).json(getCustomError(500));
+  }
 
   if (!record || (!record.integer && record.integer !== 0)) {
     return res.status(204).json(getCustomError(204));
