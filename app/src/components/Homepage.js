@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Typography, Box, Button, TextField } from '@material-ui/core';
 import { isAuthenticated } from '../helpers/authenticationHelper';
 
@@ -11,7 +11,7 @@ function Homepage(props) {
   const apiHost = process.env.REACT_APP_API_HOST || 'localhost';
   const apiPort = process.env.REACT_APP_API_PORT || '5000';
 
-  const getCurrentOrNextInteger = async (action) => {
+  const getCurrentOrNextInteger = useCallback(async (action) => {
     const response = await axios.get(`http://${apiHost}:${apiPort}/v1/${action}`, {
       headers: {
         "Content-Type": "application/vnd.api+json",
@@ -28,11 +28,11 @@ function Homepage(props) {
     const { data } = response.data;
 
     setCurrentInteger(data.attributes.value);
-  };
+  }, [apiHost, apiPort]);
 
   useEffect(() => {
     getCurrentOrNextInteger("current");
-  }, []);
+  }, [getCurrentOrNextInteger]);
 
   const resetInteger = async () => {
     if (integerResetValue < 0) {
@@ -101,7 +101,10 @@ function Homepage(props) {
           name="integer"
           label="Reset Integer"
           id="integer"
-          onChange={(e) => setIntegerResetValue(e.target.value)}
+          onChange={(e) => {
+            setError('');
+            setIntegerResetValue(e.target.value);
+          }}
           variant="outlined"
           value={integerResetValue}
           fullWidth={true}
