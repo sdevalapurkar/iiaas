@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt");
-const User = require("../models/user");
 const { generateAccessToken } = require("../helpers/authenticationHelpers");
 const {
   getCustomError,
@@ -16,8 +15,6 @@ async function registerUser(req, res, db) {
     return res.status(406).json(getCustomError(406));
   }
 
-  console.log(req.body)
-
   if (
     !req.body ||
     !req.body.data ||
@@ -29,10 +26,10 @@ async function registerUser(req, res, db) {
 
   const hashedPassword = await bcrypt.hash(req.body.data.password, 10);
 
-  const userToRegister = new User({
+  const userToRegister = {
     email: req.body.data.email,
     password: hashedPassword,
-  });
+  };
 
   try {
     await db("users").insert(userToRegister);

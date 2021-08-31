@@ -58,7 +58,6 @@ function getCustomError(status) {
 }
 
 function validateContentTypeHeader(headers) {
-  console.log(headers["content-type"]);
   if (
     !headers ||
     (headers["content-type"] !== "application/vnd.api+json" &&
@@ -80,7 +79,7 @@ function validateAcceptHeader(headers) {
   }
 
   if (
-    headers.accept !== "application/vnd.api+json" ||
+    headers.accept !== "application/vnd.api+json" &&
     headers.accept !== "application/vnd.api+json; charset=utf-8"
   ) {
     return false;

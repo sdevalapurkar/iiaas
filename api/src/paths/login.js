@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt");
-const User = require("../models/user");
 const { generateAccessToken } = require("../helpers/authenticationHelpers");
 const {
   getCustomError,
@@ -43,10 +42,10 @@ async function loginUser(req, res, db) {
     return res.status(401).json(getCustomError(401));
   }
 
-  const userToLogin = new User({
+  const userToLogin = {
     email: req.body.data.email,
     password: record.password,
-  });
+  };
 
   const accessToken = generateAccessToken(userToLogin);
 
