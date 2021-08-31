@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "12de7893-bd71-43b8-b8bc-94a62a32a983",
+		"_postman_id": "26976d73-fd08-4bd7-989f-2810df4298ac",
 		"name": "iiaas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,6 +18,11 @@
 				"header": [
 					{
 						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
 						"value": "application/vnd.api+json",
 						"type": "text"
 					}
@@ -51,6 +56,10 @@
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"content-type": true,
+					"host": true,
+					"user-agent": true,
+					"accept-encoding": true,
+					"connection": true,
 					"accept": true
 				}
 			},
@@ -59,6 +68,11 @@
 				"header": [
 					{
 						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
 						"value": "application/vnd.api+json",
 						"type": "text"
 					}
@@ -106,6 +120,11 @@
 						"key": "Authorization",
 						"value": "Bearer <value>",
 						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
 					}
 				],
 				"url": {
@@ -142,6 +161,11 @@
 						"key": "Authorization",
 						"value": "Bearer <value>",
 						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
 					}
 				],
 				"url": {
@@ -177,6 +201,11 @@
 					{
 						"key": "Authorization",
 						"value": "Bearer <value>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
 						"type": "text"
 					}
 				],

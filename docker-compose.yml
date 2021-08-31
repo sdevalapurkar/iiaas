@@ -34,6 +34,11 @@ services:
       - POSTGRES_HOST=${POSTGRES_HOST}
     volumes:
       - data:/var/lib/postgresql/data
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:5432"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
 
   db-setup:
     build:
@@ -47,7 +52,10 @@ services:
       - POSTGRES_HOST=${POSTGRES_HOST}
     volumes:
       - /opt/app-root/src/node_modules
+    restart: on-failure
     depends_on:
+      - db
+    links:
       - db
 
 volumes:
