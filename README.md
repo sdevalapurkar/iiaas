@@ -14,10 +14,10 @@ This was not a stretch goal I attempted due to time constraints, so the only way
 
 ### Time spent
 
-Core requirements: 5.5 hrs
-Stretch goal: 1.5 hrs
-QA and Documentation: 1 hr
-Total: 8 hrs
+- Core requirements: 5.5 hrs
+- Stretch goals: 1.5 hrs
+- QA and Documentation: 1 hr
+- Total: 8 hrs
 
 ### Assumptions made
 
@@ -54,7 +54,7 @@ In order to make running the application locally simpler, all the components of 
 1. Clone the repository using the following command: `git clone https://github.com/sdevalapurkar/iiaas.git`.
 2. In the root directory (where the `docker-compose.yml` file resides), create a `.env` file and paste in the contents of the `env.docker` file. You can modify the `API_SECRET` variable if need be, but for testing purposes this does not need to be changed.
 3. From the root directory, run the following command: `docker-compose up -d`. This will start up all the containers (db, app, api) in daemon mode (background process) and will also run a database migration which will create the users table for immediate use/testing.
-4. Once all containers are up and running, the app is ready to be interacted with using the frontend web interface at `localhost:3000` or through a tool like Postman by hitting the endpoints at `localhost:5000`.
+4. Once all containers are up and running, the app is ready to be interacted with using the frontend web interface at `localhost:3000` or through a tool like Postman by hitting the endpoints directly at `localhost:5000`.
 
 ### What did you not include in your solution that you want us to know about?
 
