@@ -4,6 +4,20 @@ Increment Integer as a Service.
 
 An application to provide a way to get integers that automatically increment. This can be used to generate identifiers from within code.
 
+## Web Interface
+
+### Register as a new user
+
+<img width="582" alt="Screenshot 2021-08-31 004853" src="https://user-images.githubusercontent.com/28017034/131601827-2a59cbf2-b390-4004-a98e-cdc5cd8fc991.png">
+
+### Login as an existing user
+
+<img width="578" alt="Screenshot 2021-08-31 004916" src="https://user-images.githubusercontent.com/28017034/131601829-5790f290-5512-49ce-b636-008785ed4807.png">
+
+### View current/next integer in sequence and reset integer value
+
+<img width="578" alt="Screenshot 2021-08-31 004829" src="https://user-images.githubusercontent.com/28017034/131601821-07f66160-63cd-41c3-b8cc-35a7f325b8a4.png">
+
 ## Notes
 
 ### Date
