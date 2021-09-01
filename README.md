@@ -51,7 +51,7 @@ The API uses `express`, and as mentioned in this issue (https://github.com/expre
 
 2. Every user has their own count. As a result, each request made with a given authenticated user's token returns that user's count.
 
-3. Bearer token (API Secret) being returning can have an arbitrarily long expiry. In my case, I chose 60 minutes as it seems reasonable for a user; however, this number was purely based on assumption on how the system may be used by a real-world user.
+3. Bearer token (API Secret) being returned can have an arbitrarily long expiry. In my case, I chose 60 minutes as it seems reasonable for a user; however, this number was purely based on assumption on how the system may be used by a real-world user.
 
 ### Shortcuts/Compromises made
 
