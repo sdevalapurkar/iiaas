@@ -1,6 +1,8 @@
 # iiaas
 
-Increment Integer as a Service
+Increment Integer as a Service.
+
+An application to provide a way to get integers that automatically increment. This can be used to generate identifiers from within code.
 
 ## Notes
 
