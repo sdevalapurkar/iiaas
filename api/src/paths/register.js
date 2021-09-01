@@ -36,7 +36,7 @@ async function registerUser(req, res, db) {
   } catch (e) {
     return res.status(500).json(getCustomError(500));
   }
-  const accessToken = generateAccessToken(userToRegister);
+  const accessToken = generateAccessToken({ email: req.body.data.email });
 
   return res.json({
     data: {

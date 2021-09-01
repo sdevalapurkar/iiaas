@@ -44,7 +44,6 @@ async function loginUser(req, res, db) {
 
   const userToLogin = {
     email: req.body.data.email,
-    password: record.password,
   };
 
   const accessToken = generateAccessToken(userToLogin);
@@ -54,8 +53,8 @@ async function loginUser(req, res, db) {
       id: "1",
       type: "token",
       attributes: {
-        value: accessToken
-      }
+        value: accessToken,
+      },
     },
   });
 }
